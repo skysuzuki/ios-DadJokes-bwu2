@@ -86,10 +86,6 @@
                         <viewLayoutGuide key="safeArea" id="g9m-g0-B6c"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dad Jokes" id="ZEg-bv-iXH"/>
-                    <connections>
-                        <outlet property="passwordTextField" destination="KoZ-Yc-Ibf" id="sHc-sm-ewF"/>
-                        <outlet property="usernameTextField" destination="fr6-mC-hik" id="pKU-NC-4AD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X71-5L-zSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,13 +227,13 @@
                     <navigationItem key="navigationItem" id="yEy-q2-jIS">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="7DB-w9-Iv6">
                             <connections>
-                                <action selector="saveTapped:" destination="qRU-EX-bfE" id="7qZ-JU-Rnh"/>
+                                <action selector="saveTapped:" destination="qRU-EX-bfE" id="lxP-Zl-Xfa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="answerTextView" destination="Ipg-s3-LBs" id="Eog-5B-CmS"/>
-                        <outlet property="questionTextField" destination="nJ3-ei-OOZ" id="EvZ-aD-qus"/>
+                        <outlet property="answerTextView" destination="Ipg-s3-LBs" id="Ujf-Zz-SVC"/>
+                        <outlet property="questionTextField" destination="nJ3-ei-OOZ" id="ag2-rv-eRi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9U-S4-xOF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -15,9 +15,9 @@
 		BB8AB9F123839366008BC6DE /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AB9F023839366008BC6DE /* Joke.swift */; };
 		BB8AB9F723839482008BC6DE /* JokeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AB9F623839482008BC6DE /* JokeCollectionViewCell.swift */; };
 		BB8AB9FC23839496008BC6DE /* JokesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AB9F923839496008BC6DE /* JokesCollectionViewController.swift */; };
-		BB8AB9FD23839496008BC6DE /* JokesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AB9FA23839496008BC6DE /* JokesDetailViewController.swift */; };
-		BB8AB9FE23839496008BC6DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AB9FB23839496008BC6DE /* LoginViewController.swift */; };
-		BB8ABA0123839561008BC6DE /* JokeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA0023839561008BC6DE /* JokeController.swift */; };
+		BB8ABA0323844BA9008BC6DE /* JokeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA0223844BA9008BC6DE /* JokeController.swift */; };
+		BB8ABA0523844E80008BC6DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA0423844E80008BC6DE /* LoginViewController.swift */; };
+		BB8ABA072384503C008BC6DE /* JokesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA062384503C008BC6DE /* JokesDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +31,9 @@
 		BB8AB9F023839366008BC6DE /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		BB8AB9F623839482008BC6DE /* JokeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB8AB9F923839496008BC6DE /* JokesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokesCollectionViewController.swift; sourceTree = "<group>"; };
-		BB8AB9FA23839496008BC6DE /* JokesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokesDetailViewController.swift; sourceTree = "<group>"; };
-		BB8AB9FB23839496008BC6DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BB8ABA0023839561008BC6DE /* JokeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeController.swift; sourceTree = "<group>"; };
+		BB8ABA0223844BA9008BC6DE /* JokeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JokeController.swift; path = "DadJokes/Model Controllers/JokeController.swift"; sourceTree = SOURCE_ROOT; };
+		BB8ABA0423844E80008BC6DE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "DadJokes/View Controllers/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
+		BB8ABA062384503C008BC6DE /* JokesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,17 +116,16 @@
 			isa = PBXGroup;
 			children = (
 				BB8AB9F923839496008BC6DE /* JokesCollectionViewController.swift */,
-				BB8AB9FA23839496008BC6DE /* JokesDetailViewController.swift */,
-				BB8AB9FB23839496008BC6DE /* LoginViewController.swift */,
+				BB8ABA0423844E80008BC6DE /* LoginViewController.swift */,
+				BB8ABA062384503C008BC6DE /* JokesDetailViewController.swift */,
 			);
-			name = "View Controllers";
-			path = "../../../../../../Desktop/DadJokesBackup/DadJokes/View Controllers";
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		BB8AB9FF23839561008BC6DE /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BB8ABA0023839561008BC6DE /* JokeController.swift */,
+				BB8ABA0223844BA9008BC6DE /* JokeController.swift */,
 			);
 			name = "Model Controllers";
 			path = "../../../../../../Desktop/DadJokesBackup/DadJokes/Model Controllers";
@@ -203,11 +202,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB8AB9FE23839496008BC6DE /* LoginViewController.swift in Sources */,
+				BB8ABA072384503C008BC6DE /* JokesDetailViewController.swift in Sources */,
 				BB8AB9FC23839496008BC6DE /* JokesCollectionViewController.swift in Sources */,
 				BB8AB9D123838E92008BC6DE /* AppDelegate.swift in Sources */,
-				BB8AB9FD23839496008BC6DE /* JokesDetailViewController.swift in Sources */,
-				BB8ABA0123839561008BC6DE /* JokeController.swift in Sources */,
+				BB8ABA0323844BA9008BC6DE /* JokeController.swift in Sources */,
+				BB8ABA0523844E80008BC6DE /* LoginViewController.swift in Sources */,
 				BB8AB9D323838E92008BC6DE /* SceneDelegate.swift in Sources */,
 				BB8AB9F123839366008BC6DE /* Joke.swift in Sources */,
 				BB8AB9F723839482008BC6DE /* JokeCollectionViewCell.swift in Sources */,

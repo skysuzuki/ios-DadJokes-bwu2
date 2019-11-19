@@ -2,7 +2,7 @@
 //  JokeController.swift
 //  DadJokes
 //
-//  Created by Lambda_School_Loaner_204 on 11/18/19.
+//  Created by Lambda_School_Loaner_204 on 11/19/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
@@ -10,36 +10,25 @@ import Foundation
 
 class JokeController {
     
+    // MARK: - Properties
+    
+    var jokes: [Joke] = []
     
     // MARK: - CRUD Methods
     
     func createJoke(question: String, answer: String) {
-        let _ = Joke(question: question, answer: answer)
-        do {
-            try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
-        } catch {
-            print("Error saving joke \(error)")
-        }
+        let joke = Joke(question: question, answer: answer)
+        jokes.append(joke)
     }
     
     func updateJoke(for joke: Joke, update question: String, update answer: String) {
-        joke.question = question
-        joke.answer = answer
-        do {
-            try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
-        } catch {
-            print("Error saving joke \(error)")
-        }
+        guard let index = jokes.firstIndex(of: joke) else { return }
+        jokes[index].question = question
+        jokes[index].answer = answer
     }
     
     func deleteJoke(for joke: Joke) {
-        let context = CoreDataStack.shared.mainContext
-        do {
-            context.delete(joke)
-            try CoreDataStack.shared.save(context: context)
-        } catch {
-            context.reset()
-            print("Error deleting joke from managed object context: \(error)")
-        }
+        guard let index = jokes.firstIndex(of: joke) else { return }
+        jokes.remove(at: index)
     }
 }
