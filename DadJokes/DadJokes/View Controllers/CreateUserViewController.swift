@@ -31,10 +31,33 @@ class CreateUserViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func registerTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        guard let usernameText = usernameTextField.text,
+            let passwordText = passwordTextField.text else { return }
+        
+        if (usernameText.isEmpty || passwordText.isEmpty) {
+            showInputAlert()
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     // MARK: - Private methods
+    
+    private func showInputAlert() {
+        var message = "Enter a:\n"
+        if let usernameText = usernameTextField.text,
+            usernameText.isEmpty {
+            message += "Username\n"
+        }
+        if let passwordText = passwordTextField.text,
+            passwordText.isEmpty {
+            message += "Password\n"
+        }
+        
+        let alert = UIAlertController(title: "Missing Field!", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
     private func updateViews() {
         view.backgroundColor = Colors.sharedColors.darkerBlue
