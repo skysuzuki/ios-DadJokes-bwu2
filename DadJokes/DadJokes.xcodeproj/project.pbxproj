@@ -18,6 +18,11 @@
 		BB8ABA0323844BA9008BC6DE /* JokeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA0223844BA9008BC6DE /* JokeController.swift */; };
 		BB8ABA0523844E80008BC6DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA0423844E80008BC6DE /* LoginViewController.swift */; };
 		BB8ABA072384503C008BC6DE /* JokesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA062384503C008BC6DE /* JokesDetailViewController.swift */; };
+		BB8ABA09238454DA008BC6DE /* FredokaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB8ABA08238454DA008BC6DE /* FredokaOne-Regular.ttf */; };
+		BB8ABA0B238454FC008BC6DE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB8ABA0A238454FC008BC6DE /* Roboto-Regular.ttf */; };
+		BB8ABA0E23845960008BC6DE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA0D23845960008BC6DE /* Colors.swift */; };
+		BB8ABA1023846C03008BC6DE /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB8ABA0F23846C03008BC6DE /* Roboto-Medium.ttf */; };
+		BB8ABA1223846F0C008BC6DE /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA1123846F0C008BC6DE /* CreateUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		BB8ABA0223844BA9008BC6DE /* JokeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JokeController.swift; path = "DadJokes/Model Controllers/JokeController.swift"; sourceTree = SOURCE_ROOT; };
 		BB8ABA0423844E80008BC6DE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "DadJokes/View Controllers/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
 		BB8ABA062384503C008BC6DE /* JokesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesDetailViewController.swift; sourceTree = "<group>"; };
+		BB8ABA08238454DA008BC6DE /* FredokaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FredokaOne-Regular.ttf"; sourceTree = "<group>"; };
+		BB8ABA0A238454FC008BC6DE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		BB8ABA0D23845960008BC6DE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BB8ABA0F23846C03008BC6DE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		BB8ABA1123846F0C008BC6DE /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +99,11 @@
 		BB8AB9E523838FB9008BC6DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BB8ABA0C2384550B008BC6DE /* Fonts */,
 				BB8AB9D023838E92008BC6DE /* AppDelegate.swift */,
 				BB8AB9D223838E92008BC6DE /* SceneDelegate.swift */,
 				BB8AB9D923838E94008BC6DE /* Assets.xcassets */,
+				BB8ABA0D23845960008BC6DE /* Colors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -118,6 +130,7 @@
 				BB8AB9F923839496008BC6DE /* JokesCollectionViewController.swift */,
 				BB8ABA0423844E80008BC6DE /* LoginViewController.swift */,
 				BB8ABA062384503C008BC6DE /* JokesDetailViewController.swift */,
+				BB8ABA1123846F0C008BC6DE /* CreateUserViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -127,8 +140,17 @@
 			children = (
 				BB8ABA0223844BA9008BC6DE /* JokeController.swift */,
 			);
-			name = "Model Controllers";
-			path = "../../../../../../Desktop/DadJokesBackup/DadJokes/Model Controllers";
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		BB8ABA0C2384550B008BC6DE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BB8ABA0F23846C03008BC6DE /* Roboto-Medium.ttf */,
+				BB8ABA0A238454FC008BC6DE /* Roboto-Regular.ttf */,
+				BB8ABA08238454DA008BC6DE /* FredokaOne-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +213,10 @@
 			files = (
 				BB8AB9DD23838E94008BC6DE /* LaunchScreen.storyboard in Resources */,
 				BB8AB9DA23838E94008BC6DE /* Assets.xcassets in Resources */,
+				BB8ABA1023846C03008BC6DE /* Roboto-Medium.ttf in Resources */,
+				BB8ABA0B238454FC008BC6DE /* Roboto-Regular.ttf in Resources */,
 				BB8AB9EF2383915D008BC6DE /* Main.storyboard in Resources */,
+				BB8ABA09238454DA008BC6DE /* FredokaOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB8ABA072384503C008BC6DE /* JokesDetailViewController.swift in Sources */,
+				BB8ABA1223846F0C008BC6DE /* CreateUserViewController.swift in Sources */,
+				BB8ABA0E23845960008BC6DE /* Colors.swift in Sources */,
 				BB8AB9FC23839496008BC6DE /* JokesCollectionViewController.swift in Sources */,
 				BB8AB9D123838E92008BC6DE /* AppDelegate.swift in Sources */,
 				BB8ABA0323844BA9008BC6DE /* JokeController.swift in Sources */,

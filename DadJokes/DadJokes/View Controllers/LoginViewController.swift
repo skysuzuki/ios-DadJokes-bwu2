@@ -15,13 +15,45 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var logInView: UIView!
+    
+    @IBOutlet weak var guestButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Private Methods
+    
+    private func updateViews() {
+        view.backgroundColor = Colors.sharedColors.darkerBlue
+        logInView.backgroundColor = Colors.sharedColors.darkestBlue
+        
+        usernameTextField.backgroundColor = Colors.sharedColors.babyBlue
+        passwordTextField.backgroundColor = Colors.sharedColors.babyBlue
+        buttonViews()
+    }
+    
+    private func buttonViews() {
+        // Register button
+        registerButton.backgroundColor = Colors.sharedColors.salmon
+        registerButton.setTitleColor(UIColor.white, for: .normal)
+        registerButton.layer.cornerRadius = 8.0
+        
+        // Sign In button
+        signInButton.backgroundColor = Colors.sharedColors.salmon
+        signInButton.setTitleColor(UIColor.white, for: .normal)
+        signInButton.layer.cornerRadius = 8.0
+        
+        // Guest Button
+        guestButton.backgroundColor = Colors.sharedColors.salmon
+        guestButton.setTitleColor(UIColor.white, for: .normal)
+        guestButton.layer.cornerRadius = 8.0
+    }
     /*
      // MARK: - Navigation
      
