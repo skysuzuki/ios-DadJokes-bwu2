@@ -24,6 +24,7 @@ struct Colors {
     static let sharedColors = Colors()
     
     let babyBlue = UIColor(red: 168, green: 208, blue: 230)
+    let veryLightBlue = UIColor(red: 168, green: 208, blue: 230).withAlphaComponent(0.13)
     let darkerBlue = UIColor(red: 55, green: 71, blue: 133)
     let darkestBlue = UIColor(red: 36, green: 48, blue: 94)
     let tan = UIColor(red: 248, green: 233, blue: 161)

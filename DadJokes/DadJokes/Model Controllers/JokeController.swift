@@ -16,8 +16,8 @@ class JokeController {
     
     // MARK: - CRUD Methods
     
-    func createJoke(question: String, answer: String) {
-        let joke = Joke(question: question, answer: answer)
+    func createJoke(question: String, answer: String, isPrivate: Bool) {
+        let joke = Joke(question: question, answer: answer, isPrivate: isPrivate)
         jokes.append(joke)
     }
     

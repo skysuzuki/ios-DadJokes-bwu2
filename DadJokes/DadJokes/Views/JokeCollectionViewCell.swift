@@ -13,6 +13,9 @@ class JokeCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     
     @IBOutlet weak var jokeQuestionLabel: UILabel!
+    @IBOutlet weak var privateQuestionLabel: UILabel!
+    
+    @IBOutlet weak var view: UIView!
     
     // MARK: - Properties
     
@@ -27,5 +30,7 @@ class JokeCollectionViewCell: UICollectionViewCell {
     private func updateViews() {
         guard let joke = joke else { return }
         jokeQuestionLabel.text = joke.question
+        privateQuestionLabel.text = joke.isPrivate ? "Private" : "Public"
+        view.backgroundColor = Colors.sharedColors.veryLightBlue
     }
 }
