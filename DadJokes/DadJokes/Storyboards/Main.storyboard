@@ -321,7 +321,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="or6-7x-df6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dad Jokes" largeTitleDisplayMode="always" id="vWz-CE-tz6">
+                    <navigationItem key="navigationItem" title="Dad Jokes" id="vWz-CE-tz6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="723-gj-nri">
                             <connections>
                                 <segue destination="qRU-EX-bfE" kind="show" identifier="ShowCreateJokeSegue" id="DAy-44-zyB"/>

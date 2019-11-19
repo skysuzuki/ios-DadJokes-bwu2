@@ -25,6 +25,8 @@ class JokesCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        jokeCollectionView.delegate = self
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +63,18 @@ extension JokesCollectionViewController: UICollectionViewDataSource {
         cell.joke = jokeController.jokes[indexPath.item]
         
         return cell
+    }
+}
+
+extension JokesCollectionViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let joke = jokeController.jokes[indexPath.item]
+        let alert = UIAlertController(title: "Punchline!", message: joke.answer, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        jokeCollectionView?.reloadData()
     }
 }
 
