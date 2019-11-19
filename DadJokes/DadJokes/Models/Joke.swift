@@ -11,4 +11,5 @@ import Foundation
 struct Joke: Codable, Equatable {
     var question: String
     var answer: String
+    var isPrivate: Bool = false
 }

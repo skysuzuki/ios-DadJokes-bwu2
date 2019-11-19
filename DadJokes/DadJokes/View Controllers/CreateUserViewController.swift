@@ -37,7 +37,7 @@ class CreateUserViewController: UIViewController {
         if (usernameText.isEmpty || passwordText.isEmpty) {
             showInputAlert()
         } else {
-            dismiss(animated: true, completion: nil)
+            showRegistrationCompleteAlert()
         }
     }
 
@@ -56,6 +56,14 @@ class CreateUserViewController: UIViewController {
         
         let alert = UIAlertController(title: "Missing Field!", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showRegistrationCompleteAlert() {
+        let alert = UIAlertController(title: "Registration Complete!", message: "Log In", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
         present(alert, animated: true, completion: nil)
     }
     
