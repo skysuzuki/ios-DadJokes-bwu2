@@ -18,7 +18,7 @@ class CreateUserViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var emailTextField: UITextField!
     
     // MARK: - View Lifecycles
     
@@ -73,7 +73,7 @@ class CreateUserViewController: UIViewController {
         
         usernameTextField.backgroundColor = Colors.babyBlue
         passwordTextField.backgroundColor = Colors.babyBlue
-        
+        emailTextField.backgroundColor = Colors.babyBlue
         buttonViews()
     }
     
