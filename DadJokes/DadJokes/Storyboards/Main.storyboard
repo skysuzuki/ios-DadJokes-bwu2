@@ -330,6 +330,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="jokeCollectionView" destination="R92-i1-msy" id="T1o-Kt-0X0"/>
+                        <segue destination="qRU-EX-bfE" kind="show" identifier="ShowDetailJokeSegue" id="q9D-qq-85a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wG2-bN-oWL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -427,4 +428,7 @@
             <point key="canvasLocation" x="2861" y="-575"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="q9D-qq-85a"/>
+    </inferredMetricsTieBreakers>
 </document>

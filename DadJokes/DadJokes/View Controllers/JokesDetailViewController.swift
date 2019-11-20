@@ -25,8 +25,14 @@ class JokesDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationViews()
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - Private methods
+    
+    private func navigationViews() {
+        self.title = "Create a New Joke"
     }
     
     // MARK: - IBActions

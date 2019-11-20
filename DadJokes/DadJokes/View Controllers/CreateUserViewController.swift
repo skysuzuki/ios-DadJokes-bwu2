@@ -68,17 +68,17 @@ class CreateUserViewController: UIViewController {
     }
     
     private func updateViews() {
-        view.backgroundColor = Colors.sharedColors.darkerBlue
-        registerView.backgroundColor = Colors.sharedColors.darkestBlue
+        view.backgroundColor = Colors.darkerBlue
+        registerView.backgroundColor = Colors.darkestBlue
         
-        usernameTextField.backgroundColor = Colors.sharedColors.babyBlue
-        passwordTextField.backgroundColor = Colors.sharedColors.babyBlue
+        usernameTextField.backgroundColor = Colors.babyBlue
+        passwordTextField.backgroundColor = Colors.babyBlue
         
         buttonViews()
     }
     
     private func buttonViews() {
-        registerButton.backgroundColor = Colors.sharedColors.salmon
+        registerButton.backgroundColor = Colors.salmon
         registerButton.setTitleColor(UIColor.white, for: .normal)
         registerButton.layer.cornerRadius = 8.0
     }

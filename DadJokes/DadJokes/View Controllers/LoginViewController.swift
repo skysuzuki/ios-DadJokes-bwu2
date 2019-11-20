@@ -30,27 +30,27 @@ class LoginViewController: UIViewController {
     // MARK: - Private Methods
     
     private func updateViews() {
-        view.backgroundColor = Colors.sharedColors.darkerBlue
-        logInView.backgroundColor = Colors.sharedColors.darkestBlue
+        view.backgroundColor = Colors.darkerBlue
+        logInView.backgroundColor = Colors.darkestBlue
         
-        usernameTextField.backgroundColor = Colors.sharedColors.babyBlue
-        passwordTextField.backgroundColor = Colors.sharedColors.babyBlue
+        usernameTextField.backgroundColor = Colors.babyBlue
+        passwordTextField.backgroundColor = Colors.babyBlue
         buttonViews()
     }
     
     private func buttonViews() {
         // Register button
-        registerButton.backgroundColor = Colors.sharedColors.salmon
+        registerButton.backgroundColor = Colors.salmon
         registerButton.setTitleColor(UIColor.white, for: .normal)
         registerButton.layer.cornerRadius = 8.0
         
         // Sign In button
-        signInButton.backgroundColor = Colors.sharedColors.salmon
+        signInButton.backgroundColor = Colors.salmon
         signInButton.setTitleColor(UIColor.white, for: .normal)
         signInButton.layer.cornerRadius = 8.0
         
         // Guest Button
-        guestButton.backgroundColor = Colors.sharedColors.salmon
+        guestButton.backgroundColor = Colors.salmon
         guestButton.setTitleColor(UIColor.white, for: .normal)
         guestButton.layer.cornerRadius = 8.0
     }

@@ -21,12 +21,10 @@ extension UIColor {
 
 struct Colors {
     
-    static let sharedColors = Colors()
-    
-    let babyBlue = UIColor(red: 168, green: 208, blue: 230)
-    let veryLightBlue = UIColor(red: 168, green: 208, blue: 230).withAlphaComponent(0.13)
-    let darkerBlue = UIColor(red: 55, green: 71, blue: 133)
-    let darkestBlue = UIColor(red: 36, green: 48, blue: 94)
-    let tan = UIColor(red: 248, green: 233, blue: 161)
-    let salmon = UIColor(red: 247, green: 108, blue: 108)
+    static let babyBlue = UIColor(red: 168, green: 208, blue: 230)
+    static let veryLightBlue = UIColor(red: 168, green: 208, blue: 230).withAlphaComponent(0.13)
+    static let darkerBlue = UIColor(red: 55, green: 71, blue: 133)
+    static let darkestBlue = UIColor(red: 36, green: 48, blue: 94)
+    static let tan = UIColor(red: 248, green: 233, blue: 161)
+    static let salmon = UIColor(red: 247, green: 108, blue: 108)
 }

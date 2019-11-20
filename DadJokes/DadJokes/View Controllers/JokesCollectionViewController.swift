@@ -25,15 +25,21 @@ class JokesCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        themeApperance()
         jokeCollectionView.delegate = self
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         jokeCollectionView?.reloadData()
     }
-
+    
+    private func themeApperance() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont(name: "FredokaOne-Regular", size: 40.0) as Any]
+        view.backgroundColor = Colors.darkerBlue
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
