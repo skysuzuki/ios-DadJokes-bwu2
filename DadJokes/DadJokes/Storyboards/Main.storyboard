@@ -87,6 +87,9 @@
                                                 <rect key="frame" x="104" y="0.0" width="96" height="35"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                                 <state key="normal" title="Sign In"/>
+                                                <connections>
+                                                    <action selector="signInButtonTapped:" destination="V7k-sD-gSs" eventType="touchUpInside" id="gaZ-xB-08n"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

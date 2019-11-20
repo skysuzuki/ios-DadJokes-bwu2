@@ -10,6 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    private let jokeController = JokeController()
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -27,6 +31,28 @@ class LoginViewController: UIViewController {
         updateViews()
         // Do any additional setup after loading the view.
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func signInButtonTapped(_ sender: UIButton) {
+        if let username = usernameTextField.text,
+            !username.isEmpty,
+            let password = passwordTextField.text,
+            !password.isEmpty {
+            
+            let user = UserLogin(username: username, password: password)
+            
+            jokeController.signIn(with: user) { error in
+                if let error = error {
+                    print("Error signing in! \(error)")
+                } else {
+                    print("Log in was successful!")
+                }
+            }
+            
+        }
+    }
+    
     
     // MARK: - Private Methods
     

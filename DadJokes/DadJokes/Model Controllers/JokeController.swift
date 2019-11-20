@@ -19,12 +19,78 @@ class JokeController {
     
     // MARK: - Properties
     
-    var jokes: [Joke] = []
     let jokesURL = URL(string: "https://dad-jokes-2019.herokuapp.com/api/")!
-    
+    var jokes: [Joke] = []
+    var token: Token?
     // MARK: - Log In Methods
     
+    func register(with user: UserRegistration, completion: @escaping (Error?) -> Void) {
+        let registerURL = jokesURL.appendingPathComponent("auth/register")
+        
+        var request = URLRequest(url: registerURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let jsonEncoder = JSONEncoder()
+        do {
+            let jsonData = try jsonEncoder.encode(user)
+            request.httpBody = jsonData
+        } catch {
+            print("Error encoding user object: \(error)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { _, _, error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
+    }
     
+    func signIn(with user: UserLogin, completion: @escaping (Error?) -> Void) {
+        let loginURL = jokesURL.appendingPathComponent("auth/login")
+        
+        var request = URLRequest(url: loginURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let jsonEncoder = JSONEncoder()
+        do {
+            let jsonData = try jsonEncoder.encode(user)
+            request.httpBody = jsonData
+        } catch {
+            print("Error encoding user object: \(error)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                self.token = try decoder.decode(Token.self, from: data)
+            } catch {
+                print("Error decoding token object: \(error)")
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }.resume()
+        
+    }
     
     // MARK: - Fetch Methods
     
