@@ -43,11 +43,9 @@ class JokesDetailViewController: UIViewController {
             !questionText.isEmpty,
             !answerTextView.text.isEmpty else { return }
         
-        let isPrivate = (jokeSegmentedControl.selectedSegmentIndex == 1) ? true : false
+        let _ = (jokeSegmentedControl.selectedSegmentIndex == 1) ? true : false
         
-        jokeController.createJoke(question: questionText,
-                                  answer: answerTextView.text,
-                                  isPrivate: isPrivate)
+        jokeController.createJoke(question: questionText, answer: answerTextView.text)
         
         navigationController?.popViewController(animated: true)
     }

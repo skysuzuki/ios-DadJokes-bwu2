@@ -29,8 +29,8 @@ class JokeCollectionViewCell: UICollectionViewCell {
     
     private func updateViews() {
         guard let joke = joke else { return }
-        jokeQuestionLabel.text = joke.question
-        privateQuestionLabel.text = joke.isPrivate ? "Private" : "Public"
+        jokeQuestionLabel.text = joke.jokesDescription
+        //privateQuestionLabel.text = joke.isPrivate ? "Private" : "Public"
         view.backgroundColor = Colors.veryLightBlue
         view.layer.cornerRadius = 8.0
     }

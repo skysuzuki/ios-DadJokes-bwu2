@@ -23,6 +23,8 @@
 		BB8ABA0E23845960008BC6DE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA0D23845960008BC6DE /* Colors.swift */; };
 		BB8ABA1023846C03008BC6DE /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB8ABA0F23846C03008BC6DE /* Roboto-Medium.ttf */; };
 		BB8ABA1223846F0C008BC6DE /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA1123846F0C008BC6DE /* CreateUserViewController.swift */; };
+		BB8ABA1623859D19008BC6DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA1523859D19008BC6DE /* User.swift */; };
+		BB8ABA182385B3E0008BC6DE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA172385B3E0008BC6DE /* Token.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		BB8ABA0D23845960008BC6DE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BB8ABA0F23846C03008BC6DE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		BB8ABA1123846F0C008BC6DE /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		BB8ABA1523859D19008BC6DE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BB8ABA172385B3E0008BC6DE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				BB8AB9F023839366008BC6DE /* Joke.swift */,
+				BB8ABA1523859D19008BC6DE /* User.swift */,
+				BB8ABA172385B3E0008BC6DE /* Token.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,6 +236,7 @@
 				BB8ABA072384503C008BC6DE /* JokesDetailViewController.swift in Sources */,
 				BB8ABA1223846F0C008BC6DE /* CreateUserViewController.swift in Sources */,
 				BB8ABA0E23845960008BC6DE /* Colors.swift in Sources */,
+				BB8ABA182385B3E0008BC6DE /* Token.swift in Sources */,
 				BB8AB9FC23839496008BC6DE /* JokesCollectionViewController.swift in Sources */,
 				BB8AB9D123838E92008BC6DE /* AppDelegate.swift in Sources */,
 				BB8ABA0323844BA9008BC6DE /* JokeController.swift in Sources */,
@@ -237,6 +244,7 @@
 				BB8AB9D323838E92008BC6DE /* SceneDelegate.swift in Sources */,
 				BB8AB9F123839366008BC6DE /* Joke.swift in Sources */,
 				BB8AB9F723839482008BC6DE /* JokeCollectionViewCell.swift in Sources */,
+				BB8ABA1623859D19008BC6DE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

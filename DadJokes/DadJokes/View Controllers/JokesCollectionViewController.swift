@@ -27,11 +27,27 @@ class JokesCollectionViewController: UIViewController {
         super.viewDidLoad()
         themeApperance()
         jokeCollectionView.delegate = self
+        jokeCollectionView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //fetchJokes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchJokes()
         jokeCollectionView?.reloadData()
+    }
+    
+    private func fetchJokes() {
+        jokeController.getNoAuthJokes { error in
+            if let error = error {
+                print("Something is wrong \(error)")
+            }
+        }
     }
     
     private func themeApperance() {
@@ -76,7 +92,7 @@ extension JokesCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let joke = jokeController.jokes[indexPath.item]
-        let alert = UIAlertController(title: "Punchline!", message: joke.answer, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Punchline!", message: joke.punchline, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)

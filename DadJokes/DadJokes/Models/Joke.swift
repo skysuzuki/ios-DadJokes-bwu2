@@ -9,7 +9,7 @@
 import Foundation
 
 struct Joke: Codable, Equatable {
-    var question: String
-    var answer: String
-    var isPrivate: Bool = false
+    var id: Int = 0
+    var jokesDescription: String
+    var punchline: String
 }

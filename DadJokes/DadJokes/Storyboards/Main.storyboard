@@ -104,7 +104,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                         <state key="normal" title="Continue As Guest"/>
                                         <connections>
-                                            <segue destination="Wk4-C8-r5A" kind="show" id="Zbu-Aw-F8F"/>
+                                            <segue destination="Wk4-C8-r5A" kind="show" identifier="ShowGuestCollectionSegue" id="Zbu-Aw-F8F"/>
                                         </connections>
                                     </button>
                                 </subviews>
