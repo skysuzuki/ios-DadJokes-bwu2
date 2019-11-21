@@ -50,10 +50,14 @@ class LoginViewController: UIViewController {
             jokeController.signIn(with: user) { error in
                 if let error = error {
                     print("Error signing in! \(error)")
+                } else {
+                    print("Signed In!")
                 }
                 self.jokeController.getNoAuthJokes { error in
                     if let error = error {
                         print("Error getting Jokes \(error)")
+                    } else {
+                        print("Got Jokes!")
                     }
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "ShowLogInSegue", sender: self)

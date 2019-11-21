@@ -58,10 +58,9 @@ class CreateUserViewController: UIViewController {
             if let error = error {
                 print("Error registering user: \(error)")
             } else {
-                print("Created a user!")
-                //DispatchQueue.main.async {
-                    //self.showRegistrationCompleteAlert()
-                //}
+                DispatchQueue.main.async {
+                    self.showRegistrationCompleteAlert()
+                }
                 
             }
         }

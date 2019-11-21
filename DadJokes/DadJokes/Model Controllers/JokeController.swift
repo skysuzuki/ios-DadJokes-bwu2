@@ -88,7 +88,7 @@ class JokeController {
             let decoder = JSONDecoder()
             do {
                 self.token = try decoder.decode(Token.self, from: data)
-                print(self.token as Any)
+                //print(self.token as Any)
             } catch {
                 print("Error decoding token object: \(error)")
                 completion(error)
