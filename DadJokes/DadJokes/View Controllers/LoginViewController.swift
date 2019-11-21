@@ -18,7 +18,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var logInView: UIView!
     
@@ -48,22 +47,26 @@ class LoginViewController: UIViewController {
             let user = UserLogin(username: username, password: password)
             
             jokeController.signIn(with: user) { error in
-                if let error = error {
-                    print("Error signing in! \(error)")
+                if let _ = error {
+                    DispatchQueue.main.async {
+                        self.presentBadLogInAlert()
+                        //print("Error signing in! \(error)")
+                    }
                 } else {
                     print("Signed In!")
-                }
-                self.jokeController.getNoAuthJokes { error in
-                    if let error = error {
-                        print("Error getting Jokes \(error)")
-                    } else {
-                        print("Got Jokes!")
+                    self.jokeController.getNoAuthJokes { error in
+                        if let error = error {
+                            print("Error getting Jokes \(error)")
+                        } else {
+                            print("Got Jokes!")
+                            DispatchQueue.main.async {
+                                self.performSegue(withIdentifier: "ShowLogInSegue", sender: self)
+                            }
+                            print("Log in was successful!")
+                        }
                     }
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "ShowLogInSegue", sender: self)
-                    }
-                    print("Log in was successful!")
                 }
+
             }
             
         }
@@ -77,7 +80,6 @@ class LoginViewController: UIViewController {
         
         usernameTextField.backgroundColor = Colors.babyBlue
         passwordTextField.backgroundColor = Colors.babyBlue
-        emailTextField.backgroundColor = Colors.babyBlue
         buttonViews()
     }
     
@@ -96,6 +98,12 @@ class LoginViewController: UIViewController {
         guestButton.backgroundColor = Colors.salmon
         guestButton.setTitleColor(UIColor.white, for: .normal)
         guestButton.layer.cornerRadius = 8.0
+    }
+    
+    private func presentBadLogInAlert() {
+        let alert = UIAlertController(title: "Log In Unsuccessful", message: "Check username and password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Navigation

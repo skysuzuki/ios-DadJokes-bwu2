@@ -32,10 +32,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjO-Bx-NtQ" userLabel="LogInView">
-                                <rect key="frame" x="0.0" y="371.5" width="414" height="330.5"/>
+                                <rect key="frame" x="0.0" y="371.5" width="414" height="259"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aqm-kT-8xG" userLabel="TextField Stack">
-                                        <rect key="frame" x="30" y="18" width="354" height="206.5"/>
+                                        <rect key="frame" x="30" y="18" width="354" height="135"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkr-n7-fNX">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="21.5"/>
@@ -48,32 +48,21 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCK-F7-8c4">
-                                                <rect key="frame" x="0.0" y="71.5" width="354" height="21.5"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KoZ-Yc-Ibf">
-                                                <rect key="frame" x="0.0" y="101" width="354" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbL-se-7qs">
-                                                <rect key="frame" x="0.0" y="143" width="354" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="71.5" width="354" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHQ-bc-kaV">
-                                                <rect key="frame" x="0.0" y="172.5" width="354" height="34"/>
+                                                <rect key="frame" x="0.0" y="101" width="354" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="V5r-Ph-4jc" userLabel="Log/Register ButtonStack View">
-                                        <rect key="frame" x="107" y="232.5" width="200" height="35"/>
+                                        <rect key="frame" x="107" y="161" width="200" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNE-XX-pYo">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="35"/>
@@ -98,7 +87,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoz-ii-Gbb">
-                                        <rect key="frame" x="107" y="275.5" width="200" height="35"/>
+                                        <rect key="frame" x="107" y="204" width="200" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Rl3-NV-gbE"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="e7w-fT-j9W"/>
@@ -136,7 +125,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dad Jokes" id="ZEg-bv-iXH"/>
                     <connections>
-                        <outlet property="emailTextField" destination="KoZ-Yc-Ibf" id="RCt-1e-vvT"/>
                         <outlet property="guestButton" destination="hoz-ii-Gbb" id="SH1-Js-602"/>
                         <outlet property="logInView" destination="TjO-Bx-NtQ" id="yHb-Pq-fs9"/>
                         <outlet property="passwordTextField" destination="MHQ-bc-kaV" id="dxs-M5-ko7"/>
