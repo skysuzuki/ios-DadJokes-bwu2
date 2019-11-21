@@ -40,7 +40,7 @@ class CreateUserViewController: UIViewController {
             let emailText = emailTextField.text else { return }
         
         if (usernameText.isEmpty || passwordText.isEmpty || emailText.isEmpty) {
-            showInputAlert()
+            presentInputAlert()
         } else {
             let user = UserRegistration(username: usernameText,
                                         password: passwordText,
@@ -55,18 +55,18 @@ class CreateUserViewController: UIViewController {
         guard let jokeController = jokeControler else { return }
         
         jokeController.register(with: user) { error in
-            if let error = error {
-                print("Error registering user: \(error)")
-            } else {
-                DispatchQueue.main.async {
-                    self.showRegistrationCompleteAlert()
+            DispatchQueue.main.async {
+                if let error = error {
+                    self.presentBadRegistrationAlert()
+                    print("Error registering user: \(error)")
+                } else {
+                    self.presentRegistrationCompleteAlert()
                 }
-                
             }
         }
     }
     
-    private func showInputAlert() {
+    private func presentInputAlert() {
         var message = "Enter a:\n"
         if let usernameText = usernameTextField.text,
             usernameText.isEmpty {
@@ -86,11 +86,17 @@ class CreateUserViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showRegistrationCompleteAlert() {
+    private func presentRegistrationCompleteAlert() {
         let alert = UIAlertController(title: "Registration Complete!", message: "Log In", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) -> Void in
             self.dismiss(animated: true, completion: nil)
         })
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func presentBadRegistrationAlert() {
+        let alert = UIAlertController(title: "Username taken!", message: "Try a different username", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     

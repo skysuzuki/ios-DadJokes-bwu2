@@ -96,7 +96,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                         <state key="normal" title="Continue As Guest"/>
                                         <connections>
-                                            <segue destination="XCC-m3-YHz" kind="show" identifier="ShowGuestCollectionSegue" id="MlI-gs-zTK"/>
+                                            <action selector="guestSignInTapped:" destination="V7k-sD-gSs" eventType="touchUpInside" id="hv7-5q-P3A"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -132,6 +132,7 @@
                         <outlet property="signInButton" destination="KV3-k1-NLq" id="pui-CM-7Ik"/>
                         <outlet property="usernameTextField" destination="fr6-mC-hik" id="dnG-td-KAb"/>
                         <segue destination="XCC-m3-YHz" kind="show" identifier="ShowLogInSegue" id="uDW-rY-tPz"/>
+                        <segue destination="XCC-m3-YHz" kind="show" identifier="ShowGuestCollectionSegue" id="QPk-lQ-ghL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X71-5L-zSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -437,6 +438,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8qi-TC-5fX"/>
-        <segue reference="MlI-gs-zTK"/>
+        <segue reference="QPk-lQ-ghL"/>
     </inferredMetricsTieBreakers>
 </document>

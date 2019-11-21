@@ -38,6 +38,19 @@ class LoginViewController: UIViewController {
     
     // MARK: - IBActions
     
+    @IBAction func guestSignInTapped(_ sender: UIButton) {
+         self.jokeController.getNoAuthJokes { error in
+             if let error = error {
+                 print("Error getting Jokes \(error)")
+             } else {
+                 print("Got Jokes!")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "ShowGuestCollectionSegue", sender: self)
+                }
+             }
+         }
+     }
+    
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         if let username = usernameTextField.text,
             !username.isEmpty,
