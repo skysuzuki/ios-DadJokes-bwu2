@@ -361,36 +361,43 @@
                                 <rect key="frame" x="20" y="108" width="374" height="734"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-pQ-gOn">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="54"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
                                         <segments>
                                             <segment title="Public"/>
                                             <segment title="Private"/>
                                         </segments>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhH-Ez-Z13">
-                                        <rect key="frame" x="0.0" y="61" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="39" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Question:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJ3-ei-OOZ">
-                                        <rect key="frame" x="0.0" y="89.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="67.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RA-50-CWw">
-                                        <rect key="frame" x="0.0" y="131.5" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="109.5" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Whats the answer?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ipg-s3-LBs">
-                                        <rect key="frame" x="0.0" y="160" width="374" height="574"/>
+                                        <rect key="frame" x="0.0" y="138" width="374" height="558"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSf-1e-Egu">
+                                        <rect key="frame" x="0.0" y="704" width="374" height="30"/>
+                                        <state key="normal" title="Delete"/>
+                                        <connections>
+                                            <action selector="deleteTapped:" destination="qRU-EX-bfE" eventType="touchUpInside" id="u7g-cn-aOs"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -412,6 +419,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="answerTextView" destination="Ipg-s3-LBs" id="Ujf-Zz-SVC"/>
+                        <outlet property="deleteButton" destination="rSf-1e-Egu" id="TMM-Xf-Idm"/>
                         <outlet property="jokeSegmentedControl" destination="gA1-pQ-gOn" id="bAL-X0-vDh"/>
                         <outlet property="questionTextField" destination="nJ3-ei-OOZ" id="ag2-rv-eRi"/>
                     </connections>

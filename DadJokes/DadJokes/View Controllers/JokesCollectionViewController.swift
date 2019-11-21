@@ -41,7 +41,7 @@ class JokesCollectionViewController: UIViewController {
         navigationItem.leftBarButtonItem?.isEnabled = false
         navigationItem.hidesBackButton = true
         self.navigationController?.isNavigationBarHidden = false
-        fetchJokes()
+        //fetchJokes()
         jokeCollectionView?.reloadData()
     }
     

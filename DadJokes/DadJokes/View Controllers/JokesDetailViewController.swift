@@ -14,6 +14,7 @@ class JokesDetailViewController: UIViewController {
     
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextView: UITextView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet weak var jokeSegmentedControl: UISegmentedControl!
     
@@ -21,7 +22,7 @@ class JokesDetailViewController: UIViewController {
     
     var jokeController: JokeController?
     var joke: Joke?
-    let delete = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped(sender:)))
+    //let delete = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped(sender:)))
     
     // MARK: - View Lifecycle
     
@@ -38,11 +39,13 @@ class JokesDetailViewController: UIViewController {
             self.title = "Edit a Joke"
             questionTextField.text = joke.jokesDescription
             answerTextView.text = joke.punchline
-            self.navigationController?.setToolbarHidden(false, animated: false)
-            toolbarItems = [delete]
+            deleteButton.isHidden = false
+            //self.navigationController?.setToolbarHidden(false, animated: false)
+            //self.toolbarItems = [delete]
         } else {
             self.title = "Create a New Joke"
-            self.navigationController?.setToolbarHidden(true, animated: false)
+            deleteButton.isHidden = true
+            //self.navigationController?.setToolbarHidden(true, animated: false)
         }
     }
     
@@ -59,6 +62,9 @@ class JokesDetailViewController: UIViewController {
                 if let error = error {
                     print("Error editing a joke \(error)")
                 }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         } else {
             let newJoke = Joke(jokesDescription: questionText, punchline: answerTextView.text)
@@ -66,13 +72,28 @@ class JokesDetailViewController: UIViewController {
                 if let error = error {
                     print("Error creating joke \(error)")
                 }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
-        
-        navigationController?.popViewController(animated: true)
     }
     
-    @objc func deleteTapped(sender: UIBarButtonItem) {
+//    @objc func deleteTapped(sender: UIBarButtonItem) {
+//        guard let jokeController = jokeController else { return }
+//
+//        if let joke = joke {
+//            jokeController.deleteJoke(with: joke) { (error) in
+//                if let error = error {
+//                    print("Error deleting a joke \(error)")
+//                }
+//            }
+//        }
+//
+//        navigationController?.popViewController(animated: true)
+//    }
+    
+    @IBAction func deleteTapped(_ sender: UIButton) {
         guard let jokeController = jokeController else { return }
         
         if let joke = joke {
@@ -80,20 +101,10 @@ class JokesDetailViewController: UIViewController {
                 if let error = error {
                     print("Error deleting a joke \(error)")
                 }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
-        
-        navigationController?.popViewController(animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
