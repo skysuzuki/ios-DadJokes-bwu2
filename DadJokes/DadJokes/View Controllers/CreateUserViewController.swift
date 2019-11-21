@@ -10,6 +10,10 @@ import UIKit
 
 class CreateUserViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    var jokeControler: JokeController?
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var registerButton: UIButton!
@@ -32,16 +36,36 @@ class CreateUserViewController: UIViewController {
     
     @IBAction func registerTapped(_ sender: UIButton) {
         guard let usernameText = usernameTextField.text,
-            let passwordText = passwordTextField.text else { return }
+            let passwordText = passwordTextField.text,
+            let emailText = emailTextField.text else { return }
         
-        if (usernameText.isEmpty || passwordText.isEmpty) {
+        if (usernameText.isEmpty || passwordText.isEmpty || emailText.isEmpty) {
             showInputAlert()
         } else {
-            showRegistrationCompleteAlert()
+            let user = UserRegistration(username: usernameText,
+                                        password: passwordText,
+                                        email: emailText)
+            registerUser(with: user)
         }
     }
 
     // MARK: - Private methods
+    
+    private func registerUser(with user: UserRegistration) {
+        guard let jokeController = jokeControler else { return }
+        
+        jokeController.register(with: user) { error in
+            if let error = error {
+                print("Error registering user: \(error)")
+            } else {
+                print("Created a user!")
+                //DispatchQueue.main.async {
+                    //self.showRegistrationCompleteAlert()
+                //}
+                
+            }
+        }
+    }
     
     private func showInputAlert() {
         var message = "Enter a:\n"
@@ -52,6 +76,10 @@ class CreateUserViewController: UIViewController {
         if let passwordText = passwordTextField.text,
             passwordText.isEmpty {
             message += "Password\n"
+        }
+        if let emailText = emailTextField.text,
+            emailText.isEmpty {
+            message += "Email\n"
         }
         
         let alert = UIAlertController(title: "Missing Field!", message: message, preferredStyle: .alert)

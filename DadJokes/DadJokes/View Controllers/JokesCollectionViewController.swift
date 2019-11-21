@@ -16,7 +16,7 @@ class JokesCollectionViewController: UIViewController {
     
     
     // MARK: - Properties
-    private let jokeController = JokeController()
+    var jokeController: JokeController?
     
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
@@ -38,11 +38,28 @@ class JokesCollectionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.leftBarButtonItem?.isEnabled = false
+        navigationItem.hidesBackButton = true
+        self.navigationController?.isNavigationBarHidden = false
         fetchJokes()
         jokeCollectionView?.reloadData()
     }
     
     private func fetchJokes() {
+        guard let jokeController = jokeController else { return }
+//        if let _ = jokeController.token {
+//            jokeController.getAuthJokes { error in
+//                if let error = error {
+//                    print("Something wrong auth Jokes \(error)")
+//                }
+//            }
+//        } else {
+//            jokeController.getNoAuthJokes { error in
+//                if let error = error {
+//                    print("Something is wrong \(error)")
+//                }
+//            }
+//        }
         jokeController.getNoAuthJokes { error in
             if let error = error {
                 print("Something is wrong \(error)")
@@ -75,14 +92,14 @@ extension JokesCollectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        jokeController.jokes.count
+        jokeController?.jokes.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = jokeCollectionView.dequeueReusableCell(withReuseIdentifier: "JokeCell", for: indexPath) as? JokeCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.joke = jokeController.jokes[indexPath.item]
+        cell.joke = jokeController?.jokes[indexPath.item]
         
         return cell
     }
@@ -90,6 +107,8 @@ extension JokesCollectionViewController: UICollectionViewDataSource {
 
 extension JokesCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let jokeController = jokeController else { return }
         
         let joke = jokeController.jokes[indexPath.item]
         let alert = UIAlertController(title: "Punchline!", message: joke.punchline, preferredStyle: .alert)

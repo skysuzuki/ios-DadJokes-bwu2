@@ -32,6 +32,11 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     // MARK: - IBActions
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
@@ -46,13 +51,15 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     print("Error signing in! \(error)")
                 } else {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "ShowLogInSegue", sender: self)
+                    }
                     print("Log in was successful!")
                 }
             }
             
         }
     }
-    
     
     // MARK: - Private Methods
     
@@ -81,5 +88,23 @@ class LoginViewController: UIViewController {
         guestButton.backgroundColor = Colors.salmon
         guestButton.setTitleColor(UIColor.white, for: .normal)
         guestButton.layer.cornerRadius = 8.0
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "ModalRegisterSegue":
+            if let destinationVC = segue.destination as? CreateUserViewController {
+                destinationVC.jokeControler = self.jokeController
+            }
+        case "ShowLogInSegue", "ShowGuestCollectionSegue":
+            if let destinationVC = segue.destination as? JokesCollectionViewController {
+                destinationVC.jokeController = self.jokeController
+            }
+        default:
+            return
+        }
     }
 }
