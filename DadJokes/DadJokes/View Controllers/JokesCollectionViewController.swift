@@ -45,6 +45,8 @@ class JokesCollectionViewController: UIViewController {
         jokeCollectionView?.reloadData()
     }
     
+    // MARK: - Private Methods
+    
     private func fetchJokes() {
         guard let jokeController = jokeController else { return }
 //        if let _ = jokeController.token {
@@ -79,6 +81,15 @@ class JokesCollectionViewController: UIViewController {
         if segue.identifier == "ShowCreateJokeSegue" {
             if let destinationVC = segue.destination as? JokesDetailViewController {
                 destinationVC.jokeController = self.jokeController
+            }
+        } else if segue.identifier == "ShowEditJokeSegue" {
+            guard let sender = sender as? UIButton,
+                let cell = sender.superview?.superview?.superview as? JokeCollectionViewCell else { return }
+            
+            if let indexPath = jokeCollectionView?.indexPath(for: cell),
+                let destinationVC = segue.destination as? JokesDetailViewController {
+                destinationVC.jokeController = self.jokeController
+                destinationVC.joke = self.jokeController?.jokes[indexPath.item]
             }
         }
     }

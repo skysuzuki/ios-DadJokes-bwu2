@@ -169,6 +169,8 @@ class JokeController {
         }.resume()
     }
     
+    // MARK: - CRUD Methods
+    
     func createJoke(with joke: Joke, completion: @escaping (Error?) -> Void) {
         guard let token = token else { return }
         
@@ -176,10 +178,11 @@ class JokeController {
         
         var request = URLRequest(url: createJokeURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(token.token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
         do {
             let jsonData = try jsonEncoder.encode(joke)
             request.httpBody = jsonData
@@ -202,6 +205,7 @@ class JokeController {
             }
             
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             do {
                 let newJoke = try decoder.decode(Joke.self, from: data)
                 self.jokes.append(newJoke)
@@ -223,8 +227,8 @@ class JokeController {
         
         var request = URLRequest(url: deleteJokeURL)
         request.httpMethod = HTTPMethod.delete.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(token.token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             
@@ -253,8 +257,8 @@ class JokeController {
         
         var request = URLRequest(url: updateJokeURL)
         request.httpMethod = HTTPMethod.put.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(token.token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
         do {
@@ -291,18 +295,16 @@ class JokeController {
         }.resume()
     }
     
-    // MARK: - CRUD Methods
+//    func createJoke(question: String, answer: String) {
+//        let joke = Joke(jokesDescription: question, punchline: answer)
+//        jokes.append(joke)
+//    }
     
-    func createJoke(question: String, answer: String) {
-        let joke = Joke(jokesDescription: question, punchline: answer)
-        jokes.append(joke)
-    }
-    
-    func updateJoke(for joke: Joke, update question: String, update answer: String) {
-        guard let index = jokes.firstIndex(of: joke) else { return }
-        jokes[index].jokesDescription = question
-        jokes[index].punchline = answer
-    }
+//    func updateJoke(for joke: Joke, update question: String, update answer: String) {
+//        guard let index = jokes.firstIndex(of: joke) else { return }
+//        jokes[index].jokesDescription = question
+//        jokes[index].punchline = answer
+//    }
     
     // MARK: - Private Methods
     

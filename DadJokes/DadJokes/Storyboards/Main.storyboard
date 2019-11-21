@@ -286,20 +286,21 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSu-Cf-WNG">
-                                                            <rect key="frame" x="71" y="121" width="53" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIt-Bb-AVn">
+                                                            <rect key="frame" x="102" y="112" width="30" height="30"/>
+                                                            <state key="normal" title="Edit"/>
+                                                            <connections>
+                                                                <segue destination="qRU-EX-bfE" kind="show" identifier="ShowEditJokeSegue" id="8qi-TC-5fX"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="rfq-8t-lqs" secondAttribute="trailing" constant="18" id="8TD-Yv-qsi"/>
-                                                        <constraint firstItem="rSu-Cf-WNG" firstAttribute="bottom" secondItem="RId-Aj-0V2" secondAttribute="bottomMargin" id="OWl-57-GCK"/>
                                                         <constraint firstItem="rfq-8t-lqs" firstAttribute="leading" secondItem="RId-Aj-0V2" secondAttribute="leading" constant="18" id="UWW-24-Odr"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="rSu-Cf-WNG" secondAttribute="trailing" constant="18" id="dEB-Aw-2oi"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="jIt-Bb-AVn" secondAttribute="bottom" id="XQT-01-678"/>
                                                         <constraint firstItem="rfq-8t-lqs" firstAttribute="top" secondItem="RId-Aj-0V2" secondAttribute="top" constant="10" id="p4M-j8-1Cj"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="jIt-Bb-AVn" secondAttribute="trailing" constant="10" id="ziS-iO-gq3"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -313,7 +314,6 @@
                                         <size key="customSize" width="150" height="150"/>
                                         <connections>
                                             <outlet property="jokeQuestionLabel" destination="rfq-8t-lqs" id="2zA-CM-kwl"/>
-                                            <outlet property="privateQuestionLabel" destination="rSu-Cf-WNG" id="HTF-fA-Ui4"/>
                                             <outlet property="view" destination="RId-Aj-0V2" id="Qsj-Ly-EzC"/>
                                         </connections>
                                     </collectionViewCell>
@@ -440,7 +440,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q9D-qq-85a"/>
-        <segue reference="uDW-rY-tPz"/>
+        <segue reference="8qi-TC-5fX"/>
+        <segue reference="MlI-gs-zTK"/>
     </inferredMetricsTieBreakers>
 </document>

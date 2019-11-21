@@ -20,19 +20,26 @@ class JokesDetailViewController: UIViewController {
     // MARK: - Properties
     
     var jokeController: JokeController?
+    var joke: Joke?
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationViews()
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
     // MARK: - Private methods
     
-    private func navigationViews() {
-        self.title = "Create a New Joke"
+    private func updateViews() {
+        if let joke = joke {
+            self.title = "Edit a Joke"
+            questionTextField.text = joke.jokesDescription
+            answerTextView.text = joke.punchline
+        } else {
+            self.title = "Create a New Joke"
+        }
     }
     
     // MARK: - IBActions
@@ -43,9 +50,12 @@ class JokesDetailViewController: UIViewController {
             !questionText.isEmpty,
             !answerTextView.text.isEmpty else { return }
         
-        let _ = (jokeSegmentedControl.selectedSegmentIndex == 1) ? true : false
-        
-        jokeController.createJoke(question: questionText, answer: answerTextView.text)
+        let newJoke = Joke(jokesDescription: questionText, punchline: answerTextView.text)
+        jokeController.createJoke(with: newJoke) { error in
+            if let error = error {
+                print("Error creating joke \(error)")
+            }
+        }
         
         navigationController?.popViewController(animated: true)
     }
