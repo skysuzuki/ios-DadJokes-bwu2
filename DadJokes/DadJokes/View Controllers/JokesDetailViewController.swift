@@ -21,6 +21,7 @@ class JokesDetailViewController: UIViewController {
     
     var jokeController: JokeController?
     var joke: Joke?
+    let delete = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped(sender:)))
     
     // MARK: - View Lifecycle
     
@@ -37,8 +38,11 @@ class JokesDetailViewController: UIViewController {
             self.title = "Edit a Joke"
             questionTextField.text = joke.jokesDescription
             answerTextView.text = joke.punchline
+            self.navigationController?.setToolbarHidden(false, animated: false)
+            toolbarItems = [delete]
         } else {
             self.title = "Create a New Joke"
+            self.navigationController?.setToolbarHidden(true, animated: false)
         }
     }
     
@@ -61,6 +65,20 @@ class JokesDetailViewController: UIViewController {
             jokeController.createJoke(with: newJoke) { error in
                 if let error = error {
                     print("Error creating joke \(error)")
+                }
+            }
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func deleteTapped(sender: UIBarButtonItem) {
+        guard let jokeController = jokeController else { return }
+        
+        if let joke = joke {
+            jokeController.deleteJoke(with: joke) { (error) in
+                if let error = error {
+                    print("Error deleting a joke \(error)")
                 }
             }
         }
