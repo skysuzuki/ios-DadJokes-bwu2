@@ -247,11 +247,13 @@ class JokeController {
         }.resume()
     }
     
-    func updateJoke(with joke: Joke, completion: @escaping (Error?) -> Void) {
+    func updateJoke(with joke: Joke, description: String, punchline: String, completion: @escaping (Error?) -> Void) {
         guard let token = token,
             let jokeIndex = jokes.firstIndex(of: joke) else { return }
         
         let jokeId = returnJokeId(for: joke)
+        
+        let updatedJoke = Joke(id: jokeId, jokesDescription: description, punchline: punchline)
         
         let updateJokeURL = jokesURL.appendingPathComponent("auth/jokes/\(jokeId)")
         
@@ -261,8 +263,9 @@ class JokeController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
         do {
-            let jsonData = try jsonEncoder.encode(joke)
+            let jsonData = try jsonEncoder.encode(updatedJoke)
             request.httpBody = jsonData
         } catch {
             print("Error encoding joke object: \(error)")
@@ -283,6 +286,7 @@ class JokeController {
             }
             
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             do {
                 self.jokes[jokeIndex] = try decoder.decode(Joke.self, from: data)
             } catch {
@@ -294,17 +298,6 @@ class JokeController {
             completion(nil)
         }.resume()
     }
-    
-//    func createJoke(question: String, answer: String) {
-//        let joke = Joke(jokesDescription: question, punchline: answer)
-//        jokes.append(joke)
-//    }
-    
-//    func updateJoke(for joke: Joke, update question: String, update answer: String) {
-//        guard let index = jokes.firstIndex(of: joke) else { return }
-//        jokes[index].jokesDescription = question
-//        jokes[index].punchline = answer
-//    }
     
     // MARK: - Private Methods
     

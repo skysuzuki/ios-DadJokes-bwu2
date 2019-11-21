@@ -50,10 +50,18 @@ class JokesDetailViewController: UIViewController {
             !questionText.isEmpty,
             !answerTextView.text.isEmpty else { return }
         
-        let newJoke = Joke(jokesDescription: questionText, punchline: answerTextView.text)
-        jokeController.createJoke(with: newJoke) { error in
-            if let error = error {
-                print("Error creating joke \(error)")
+        if let joke = joke {
+            jokeController.updateJoke(with: joke, description: questionText, punchline: answerTextView.text ) { error in
+                if let error = error {
+                    print("Error editing a joke \(error)")
+                }
+            }
+        } else {
+            let newJoke = Joke(jokesDescription: questionText, punchline: answerTextView.text)
+            jokeController.createJoke(with: newJoke) { error in
+                if let error = error {
+                    print("Error creating joke \(error)")
+                }
             }
         }
         
