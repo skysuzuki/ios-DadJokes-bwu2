@@ -84,9 +84,15 @@ class JokesCollectionViewController: UIViewController {
                 destinationVC.jokeController = self.jokeController
                 destinationVC.joke = self.jokeController?.jokes[indexPath.item]
             }
+        } else if segue.identifier == "ModalJokePunchlineSegue" {
+            guard let sender = sender as? JokeCollectionViewCell else { return }
+            
+            if let destinationVC = segue.destination as? JokePunchlineViewController,
+                let indexPath = jokeCollectionView?.indexPath(for: sender) {
+                destinationVC.joke = self.jokeController?.jokes[indexPath.item]
+            }
         }
     }
-    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "ShowCreateJokeSegue" {
             guard let jokeController = jokeController else { return false }
@@ -132,14 +138,14 @@ extension JokesCollectionViewController: UICollectionViewDataSource {
 extension JokesCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let jokeController = jokeController else { return }
-        
-        let joke = jokeController.jokes[indexPath.item]
-        let alert = UIAlertController(title: "Punchline!", message: joke.punchline, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-        jokeCollectionView?.reloadData()
+//        guard let jokeController = jokeController else { return }
+//
+//        let joke = jokeController.jokes[indexPath.item]
+//        let alert = UIAlertController(title: "Punchline!", message: joke.punchline, preferredStyle: .alert)
+//
+//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//        present(alert, animated: true, completion: nil)
+//        jokeCollectionView?.reloadData()
     }
 }
 

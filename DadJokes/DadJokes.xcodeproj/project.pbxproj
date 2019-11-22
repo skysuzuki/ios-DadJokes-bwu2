@@ -25,6 +25,7 @@
 		BB8ABA1223846F0C008BC6DE /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA1123846F0C008BC6DE /* CreateUserViewController.swift */; };
 		BB8ABA1623859D19008BC6DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA1523859D19008BC6DE /* User.swift */; };
 		BB8ABA182385B3E0008BC6DE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8ABA172385B3E0008BC6DE /* Token.swift */; };
+		BBC229FE238840FE00D76B1D /* JokePunchlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC229FD238840FE00D76B1D /* JokePunchlineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		BB8ABA1123846F0C008BC6DE /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		BB8ABA1523859D19008BC6DE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BB8ABA172385B3E0008BC6DE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		BBC229FD238840FE00D76B1D /* JokePunchlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokePunchlineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				BB8ABA0423844E80008BC6DE /* LoginViewController.swift */,
 				BB8ABA062384503C008BC6DE /* JokesDetailViewController.swift */,
 				BB8ABA1123846F0C008BC6DE /* CreateUserViewController.swift */,
+				BBC229FD238840FE00D76B1D /* JokePunchlineViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				BB8AB9F123839366008BC6DE /* Joke.swift in Sources */,
 				BB8AB9F723839482008BC6DE /* JokeCollectionViewCell.swift in Sources */,
 				BB8ABA1623859D19008BC6DE /* User.swift in Sources */,
+				BBC229FE238840FE00D76B1D /* JokePunchlineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

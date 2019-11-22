@@ -58,7 +58,8 @@ class LoginViewController: UIViewController {
             let password = passwordTextField.text,
             !password.isEmpty {
             
-            let user = UserLogin(username: username, password: password)
+            let securePassword = passwordTextFieldSecureString(password)
+            let user = UserLogin(username: username, password: securePassword)
             
             jokeController.signIn(with: user) { error in
                 if let _ = error {
@@ -94,6 +95,7 @@ class LoginViewController: UIViewController {
         
         usernameTextField.backgroundColor = Colors.veryLightBlue
         passwordTextField.backgroundColor = Colors.veryLightBlue
+        passwordTextField.isSecureTextEntry = true
         buttonViews()
     }
     
@@ -124,6 +126,16 @@ class LoginViewController: UIViewController {
         usernameTextField.text?.removeAll()
         passwordTextField.text?.removeAll()
         usernameTextField.becomeFirstResponder()
+    }
+    
+    // Function that converts the password if secureTextEntry for text field is on
+    private func passwordTextFieldSecureString(_ password: String) -> String {
+        if passwordTextField.isSecureTextEntry {
+            passwordTextField.attributedText = NSAttributedString(string: password)
+            return passwordTextField.attributedText?.string ?? ""
+        } else {
+            return password
+        }
     }
     
     // MARK: - Navigation
