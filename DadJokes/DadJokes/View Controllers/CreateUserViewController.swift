@@ -12,7 +12,7 @@ class CreateUserViewController: UIViewController {
 
     // MARK: - Properties
     
-    var jokeControler: JokeController?
+    var jokeController: JokeController?
     
     // MARK: - IBOutlets
     
@@ -52,7 +52,7 @@ class CreateUserViewController: UIViewController {
     // MARK: - Private methods
     
     private func registerUser(with user: UserRegistration) {
-        guard let jokeController = jokeControler else { return }
+        guard let jokeController = jokeController else { return }
         
         jokeController.register(with: user) { error in
             DispatchQueue.main.async {

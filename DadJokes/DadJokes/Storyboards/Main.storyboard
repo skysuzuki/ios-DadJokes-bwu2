@@ -302,6 +302,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="150" height="150"/>
                                         <connections>
+                                            <outlet property="editJokeButon" destination="jIt-Bb-AVn" id="6kL-na-fa9"/>
                                             <outlet property="jokeQuestionLabel" destination="rfq-8t-lqs" id="2zA-CM-kwl"/>
                                             <outlet property="view" destination="RId-Aj-0V2" id="Qsj-Ly-EzC"/>
                                         </connections>
@@ -323,6 +324,11 @@
                         <viewLayoutGuide key="safeArea" id="or6-7x-df6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dad Jokes" id="vWz-CE-tz6">
+                        <barButtonItem key="leftBarButtonItem" title="Sign In" id="v0e-z9-Ldi">
+                            <connections>
+                                <action selector="signInTapped:" destination="XCC-m3-YHz" id="2j3-1C-Z8C"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="723-gj-nri">
                             <connections>
                                 <segue destination="qRU-EX-bfE" kind="show" identifier="ShowCreateJokeSegue" id="DAy-44-zyB"/>
@@ -331,7 +337,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="jokeCollectionView" destination="R92-i1-msy" id="T1o-Kt-0X0"/>
-                        <segue destination="qRU-EX-bfE" kind="show" identifier="ShowDetailJokeSegue" id="q9D-qq-85a"/>
+                        <outlet property="signLogBarButtonItem" destination="v0e-z9-Ldi" id="hNd-zK-weM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wG2-bN-oWL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

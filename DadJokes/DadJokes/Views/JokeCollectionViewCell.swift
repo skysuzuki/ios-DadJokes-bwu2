@@ -13,7 +13,7 @@ class JokeCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     
     @IBOutlet weak var jokeQuestionLabel: UILabel!
-    @IBOutlet weak var privateQuestionLabel: UILabel!
+    @IBOutlet weak var editJokeButon: UIButton!
     
     @IBOutlet weak var view: UIView!
     
@@ -30,7 +30,6 @@ class JokeCollectionViewCell: UICollectionViewCell {
     private func updateViews() {
         guard let joke = joke else { return }
         jokeQuestionLabel.text = joke.jokesDescription
-        //privateQuestionLabel.text = joke.isPrivate ? "Private" : "Public"
         view.backgroundColor = Colors.veryLightBlue
         view.layer.cornerRadius = 8.0
     }

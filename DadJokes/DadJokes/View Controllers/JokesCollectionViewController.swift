@@ -14,6 +14,7 @@ class JokesCollectionViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var jokeCollectionView: UICollectionView!
     
+    @IBOutlet weak var signLogBarButtonItem: UIBarButtonItem!
     
     // MARK: - Properties
     var jokeController: JokeController?
@@ -30,49 +31,34 @@ class JokesCollectionViewController: UIViewController {
         jokeCollectionView.dataSource = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //fetchJokes()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.leftBarButtonItem?.isEnabled = false
-        navigationItem.hidesBackButton = true
-        self.navigationController?.isNavigationBarHidden = false
-        //fetchJokes()
         jokeCollectionView?.reloadData()
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func signInTapped(_ sender: UIBarButtonItem) {
+        guard let jokeController = jokeController else { return }
+        
+        if let _ = jokeController.token {
+            jokeController.token = nil
+        }
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Private Methods
     
-    private func fetchJokes() {
-        guard let jokeController = jokeController else { return }
-//        if let _ = jokeController.token {
-//            jokeController.getAuthJokes { error in
-//                if let error = error {
-//                    print("Something wrong auth Jokes \(error)")
-//                }
-//            }
-//        } else {
-//            jokeController.getNoAuthJokes { error in
-//                if let error = error {
-//                    print("Something is wrong \(error)")
-//                }
-//            }
-//        }
-        jokeController.getNoAuthJokes { error in
-            if let error = error {
-                print("Something is wrong \(error)")
-            }
-        }
-    }
-    
     private func themeApperance() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont(name: "FredokaOne-Regular", size: 40.0) as Any]
         view.backgroundColor = Colors.darkerBlue
+        if let _ = jokeController?.token {
+            signLogBarButtonItem.title = "Log Out"
+        } else {
+            signLogBarButtonItem.title = "Sign In"
+        }
     }
     
     // MARK: - Navigation
@@ -93,8 +79,20 @@ class JokesCollectionViewController: UIViewController {
             }
         }
     }
-
-
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "ShowCreateJokeSegue" {
+            guard let jokeController = jokeController else { return false }
+            
+            if let _ = jokeController.token {
+                return true
+            } else {
+                return false
+            }
+        }
+        
+        return true
+    }
 }
 
 extension JokesCollectionViewController: UICollectionViewDataSource {
@@ -111,6 +109,11 @@ extension JokesCollectionViewController: UICollectionViewDataSource {
         guard let cell = jokeCollectionView.dequeueReusableCell(withReuseIdentifier: "JokeCell", for: indexPath) as? JokeCollectionViewCell else { return UICollectionViewCell() }
         
         cell.joke = jokeController?.jokes[indexPath.item]
+        if let _ = jokeController?.token {
+            cell.editJokeButon.isHidden = false
+        } else {
+             cell.editJokeButon.isHidden = true
+        }
         
         return cell
     }

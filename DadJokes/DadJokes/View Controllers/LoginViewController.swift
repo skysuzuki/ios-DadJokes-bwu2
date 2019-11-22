@@ -126,7 +126,7 @@ class LoginViewController: UIViewController {
         switch segue.identifier {
         case "ModalRegisterSegue":
             if let destinationVC = segue.destination as? CreateUserViewController {
-                destinationVC.jokeControler = self.jokeController
+                destinationVC.jokeController = self.jokeController
             }
         case "ShowLogInSegue", "ShowGuestCollectionSegue":
             if let destinationVC = segue.destination as? JokesCollectionViewController {
