@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        clearTextFields()
     }
     
     // MARK: - IBActions
@@ -91,8 +92,8 @@ class LoginViewController: UIViewController {
         view.backgroundColor = Colors.darkerBlue
         logInView.backgroundColor = Colors.darkestBlue
         
-        usernameTextField.backgroundColor = Colors.babyBlue
-        passwordTextField.backgroundColor = Colors.babyBlue
+        usernameTextField.backgroundColor = Colors.veryLightBlue
+        passwordTextField.backgroundColor = Colors.veryLightBlue
         buttonViews()
     }
     
@@ -100,23 +101,29 @@ class LoginViewController: UIViewController {
         // Register button
         registerButton.backgroundColor = Colors.salmon
         registerButton.setTitleColor(UIColor.white, for: .normal)
-        registerButton.layer.cornerRadius = 8.0
+        registerButton.layer.cornerRadius = 15.0
         
         // Sign In button
         signInButton.backgroundColor = Colors.salmon
         signInButton.setTitleColor(UIColor.white, for: .normal)
-        signInButton.layer.cornerRadius = 8.0
+        signInButton.layer.cornerRadius = 15.0
         
         // Guest Button
         guestButton.backgroundColor = Colors.salmon
         guestButton.setTitleColor(UIColor.white, for: .normal)
-        guestButton.layer.cornerRadius = 8.0
+        guestButton.layer.cornerRadius = 15.0
     }
     
     private func presentBadLogInAlert() {
         let alert = UIAlertController(title: "Log In Unsuccessful", message: "Check username and password", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func clearTextFields() {
+        usernameTextField.text?.removeAll()
+        passwordTextField.text?.removeAll()
+        usernameTextField.becomeFirstResponder()
     }
     
     // MARK: - Navigation

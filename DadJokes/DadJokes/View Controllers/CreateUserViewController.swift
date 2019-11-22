@@ -32,6 +32,11 @@ class CreateUserViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        clearTextFields()
+    }
+    
     // MARK: - IBActions
     
     @IBAction func registerTapped(_ sender: UIButton) {
@@ -104,15 +109,22 @@ class CreateUserViewController: UIViewController {
         view.backgroundColor = Colors.darkerBlue
         registerView.backgroundColor = Colors.darkestBlue
         
-        usernameTextField.backgroundColor = Colors.babyBlue
-        passwordTextField.backgroundColor = Colors.babyBlue
-        emailTextField.backgroundColor = Colors.babyBlue
+        usernameTextField.backgroundColor = Colors.veryLightBlue
+        passwordTextField.backgroundColor = Colors.veryLightBlue
+        emailTextField.backgroundColor = Colors.veryLightBlue
         buttonViews()
     }
     
     private func buttonViews() {
         registerButton.backgroundColor = Colors.salmon
         registerButton.setTitleColor(UIColor.white, for: .normal)
-        registerButton.layer.cornerRadius = 8.0
+        registerButton.layer.cornerRadius = 15.0
+    }
+    
+    private func clearTextFields() {
+        usernameTextField.text?.removeAll()
+        passwordTextField.text?.removeAll()
+        emailTextField.text?.removeAll()
+        usernameTextField.becomeFirstResponder()
     }
 }

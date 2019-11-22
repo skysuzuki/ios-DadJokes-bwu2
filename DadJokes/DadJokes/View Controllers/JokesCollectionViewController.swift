@@ -54,11 +54,18 @@ class JokesCollectionViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont(name: "FredokaOne-Regular", size: 40.0) as Any]
         view.backgroundColor = Colors.darkerBlue
+        jokeCollectionView.backgroundColor = Colors.babyBlue
         if let _ = jokeController?.token {
             signLogBarButtonItem.title = "Log Out"
         } else {
             signLogBarButtonItem.title = "Sign In"
         }
+    }
+    
+    private func presentNeedToLogInAlert() {
+        let alert = UIAlertController(title: "Registered Users Only!", message: "Sign in or Register", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
@@ -87,6 +94,9 @@ class JokesCollectionViewController: UIViewController {
             if let _ = jokeController.token {
                 return true
             } else {
+                DispatchQueue.main.async {
+                    self.presentNeedToLogInAlert()
+                }
                 return false
             }
         }

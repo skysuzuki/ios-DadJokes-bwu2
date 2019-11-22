@@ -16,13 +16,11 @@ class JokesDetailViewController: UIViewController {
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
     
-    @IBOutlet weak var jokeSegmentedControl: UISegmentedControl!
-    
+    @IBOutlet weak var stackedView: UIView!
     // MARK: - Properties
     
     var jokeController: JokeController?
     var joke: Joke?
-    //let delete = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped(sender:)))
     
     // MARK: - View Lifecycle
     
@@ -35,17 +33,48 @@ class JokesDetailViewController: UIViewController {
     // MARK: - Private methods
     
     private func updateViews() {
+        view.backgroundColor = Colors.darkerBlue
+        stackedView.backgroundColor = Colors.babyBlue
+        answerTextView.layer.cornerRadius = 8.0
+        buttonViews()
         if let joke = joke {
             self.title = "Edit a Joke"
             questionTextField.text = joke.jokesDescription
             answerTextView.text = joke.punchline
             deleteButton.isHidden = false
-            //self.navigationController?.setToolbarHidden(false, animated: false)
-            //self.toolbarItems = [delete]
         } else {
             self.title = "Create a New Joke"
             deleteButton.isHidden = true
-            //self.navigationController?.setToolbarHidden(true, animated: false)
+        }
+    }
+    
+    private func buttonViews() {
+        deleteButton.layer.cornerRadius = 8.0
+        deleteButton.backgroundColor = Colors.salmon
+        deleteButton.setTitleColor(.white, for: .normal)
+    }
+    
+    private func presentDeleteConfirmationAlert() {
+        let alert = UIAlertController(title: "Are you sure you want to Delete Joke?", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "DELETE", style: .destructive) { (UIAlertAction) -> Void  in
+            self.deleteJoke()
+        })
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func deleteJoke() {
+        guard let jokeController = jokeController else { return }
+        
+        if let joke = joke {
+            jokeController.deleteJoke(with: joke) { (error) in
+                if let error = error {
+                    print("Error deleting a joke \(error)")
+                }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
         }
     }
     
@@ -79,32 +108,7 @@ class JokesDetailViewController: UIViewController {
         }
     }
     
-//    @objc func deleteTapped(sender: UIBarButtonItem) {
-//        guard let jokeController = jokeController else { return }
-//
-//        if let joke = joke {
-//            jokeController.deleteJoke(with: joke) { (error) in
-//                if let error = error {
-//                    print("Error deleting a joke \(error)")
-//                }
-//            }
-//        }
-//
-//        navigationController?.popViewController(animated: true)
-//    }
-    
     @IBAction func deleteTapped(_ sender: UIButton) {
-        guard let jokeController = jokeController else { return }
-        
-        if let joke = joke {
-            jokeController.deleteJoke(with: joke) { (error) in
-                if let error = error {
-                    print("Error deleting a joke \(error)")
-                }
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
-            }
-        }
+        self.presentDeleteConfirmationAlert()
     }
 }
